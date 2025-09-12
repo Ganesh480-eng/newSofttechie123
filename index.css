@@ -25,7 +25,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -2; /* Moved behind video */
+    z-index: -2;
     background: 
         radial-gradient(ellipse at top, #1a0033, transparent),
         radial-gradient(ellipse at bottom, #330066, transparent),
@@ -65,7 +65,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Above background, below video and content */
+    z-index: -1;
 }
 
 .particle {
@@ -97,7 +97,7 @@ header {
     z-index: 1000;
     box-shadow: 0 8px 32px rgba(138, 43, 226, 0.3);
     border-bottom: 1px solid rgba(255, 107, 107, 0.2);
-    transition: all 0.3s ease; /* For scroll effect */
+    transition: all 0.3s ease;
 }
 
 header.scrolled {
@@ -186,54 +186,24 @@ nav {
     cursor: pointer;
 }
 
-/* Hero Section with Video */
-/* Hero Section with Video */
+/* Hero Section */
 .hero {
     background: none;
     padding: 0 0 120px;
     text-align: center;
     margin-top: 80px;
     position: relative;
-    overflow: hidden;
-    min-height: 100vh; /* Ensures full viewport height as a minimum */
-}
-
-.video-container {
-    position: relative;
-    width: 100%;
-    height: 60vh; /* Base height for desktop, adjustable */
-    overflow: hidden;
-    z-index: 0;
-}
-
-.video-container video {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 1;
-}
-
-.video-container .video-fallback {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: none;
-}
-
-.video-container video:invalid,
-.video-container video:focus {
-    display: none;
-}
-
-.video-container .video-fallback:invalid {
-    display: block;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .hero-content {
     position: relative;
     z-index: 1;
     color: white;
-    margin-top: 20px;
     padding: 40px 0;
 }
 
@@ -243,7 +213,7 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    height: 60vh; /* Matches video height */
+    height: 100%;
     background: rgba(0, 0, 0, 0.5);
     z-index: 0;
 }
@@ -257,6 +227,7 @@ nav {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     animation: gradientShift 4s ease infinite, titleFloat 6s ease-in-out infinite;
+    text-transform: uppercase; /* Ensure "thatSOFTTECHIE CLUB" is uppercase */
 }
 
 @keyframes gradientShift {
@@ -272,144 +243,20 @@ nav {
 
 .hero p {
     font-size: 1.4rem;
-    margin-bottom: 2rem;
-    color: #ffa500;
-    font-weight: 600;
-    text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
-    animation: fadeInUp 1s ease-out 0.5s both;
-}
-
-.cta-buttons {
-    display: flex;
-    gap: 2rem;
-    justify-content: center;
-    flex-wrap: wrap;
-    margin-top: 3rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        display: none;
-    }
-
-    .mobile-menu {
-        display: block;
-    }
-
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
-    .hero p {
-        font-size: 1.2rem;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .contact-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .section-title {
-        font-size: 2.5rem;
-    }
-
-    .objectives-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .video-container {
-        height: auto; /* Flexible height for mobile */
-    }
-
-    .video-container video {
-        width: 100%;
-        height: auto; /* Adjusts height based on width and aspect ratio */
-        object-fit: cover; /* Ensures full coverage */
-    }
-
-    .hero {
-        padding: 0 0 80px;
-    }
-
-    .hero::before {
-        height: auto; /* Matches video height */
-        min-height: 50vh; /* Minimum height for visibility */
-    }
-
-    .hero-content {
-        margin-top: 15px;
-        padding: 20px 0;
-    }
-
-    .cta-buttons a {
-        width: 100%;
-        margin-bottom: 1rem;
-    }
-}
-
-/* Additional Media Query for Larger Screens (Optional Optimization) */
-@media (min-width: 769px) and (max-width: 1200px) {
-    .video-container {
-        height: 50vh; /* Adjusted for medium screens */
-    }
-
-    .hero::before {
-        height: 50vh;
-    }
-}
-.hero-content {
-    position: relative;
-    z-index: 1;
-    color: white;
-    margin-top: 20px; /* Space below video */
-    padding: 40px 0; /* Vertical padding for content block */
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 60vh; /* Matches video height */
-    background: rgba(0, 0, 0, 0.5); /* Overlay only over video area */
-    z-index: 0;
-}
-
-.hero h1 {
-    font-size: 4rem;
     margin-bottom: 1rem;
-    background: linear-gradient(45deg, #ff6b6b, #8a2be2, #ffa500, #ff6b6b);
-    background-size: 300% 300%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    animation: gradientShift 4s ease infinite, titleFloat 6s ease-in-out infinite;
-}
-
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-@keyframes titleFloat {
-    0%, 100% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-}
-
-.hero p {
-    font-size: 1.4rem;
-    margin-bottom: 2rem;
     color: #ffa500;
     font-weight: 600;
     text-shadow: 0 0 10px rgba(255, 165, 0, 0.5);
     animation: fadeInUp 1s ease-out 0.5s both;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    animation: fadeInUp 1s ease-out 0.7s both;
 }
 
 .cta-buttons {
@@ -417,7 +264,7 @@ nav {
     gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 3rem;
+    margin-top: 2rem;
 }
 
 .btn {
@@ -857,6 +704,10 @@ footer {
         font-size: 1.2rem;
     }
 
+    .tagline {
+        font-size: 1.2rem;
+    }
+
     .cta-buttons {
         flex-direction: column;
         align-items: center;
@@ -874,16 +725,8 @@ footer {
         grid-template-columns: 1fr;
     }
 
-    .video-container {
-        height: 50vh; /* Reduced height for mobile */
-    }
-
     .hero {
         padding: 0 0 80px;
-    }
-
-    .hero::before {
-        height: 50vh; /* Adjust overlay to match video height */
     }
 
     .hero-content {
